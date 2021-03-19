@@ -95,4 +95,35 @@ $(document).ready(function () {
     });
 
 
+    //MILESTONE 3
+
+
+// Creare un nuovo array con prima tutti i gattini femmina e poi tutti i gattini maschio, 
+// inserendo solamente nome colore e opacità del fiocco per ogni gatto. 
+
+    const catsM = cats.filter((element) => element.sesso == "M" );
+    const catsF = cats.filter((element) => element.sesso == "F" );
+
+    const catsNew = [...catsF,...catsM];
+    /* console.log(catsNew); */
+
+    catsNew.forEach((element) => {
+        if ( element.eta <5){
+            element.opacity = 0.5;
+        } else {
+            element.opacity = 1;
+        }
+    });
+    
+    catsNew.forEach((element) => {
+        $("#cats3").append(`<li> ${element.nome} ha opacity ${element.opacity} legata alla sua età </li>`);
+    });
+    
+    for (let i = 0; i < catsNew.length; i++) {
+       $("#cats3").append(`<li> Nome: ${catsNew[i].nome} Età: ${catsNew[i].eta} Colore: ${catsNew[i].colore} Opacity: ${catsNew[i].opacity}</li>`);
+        
+    }
+    console.log(catsNew);
+
+
 });

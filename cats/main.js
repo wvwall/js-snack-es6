@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     //Ciclo con for each e stampo proprietà nome e colore
 
-    cats.forEach((element,i,array) => {
+    cats.forEach((element) => {
         //console.log(` Il gatto  ${element.nome} è di colore ${element.colore}`);
         $("#cats1").append(`<li> Il gatto  ${element.nome} è di colore ${element.colore} </li>`);
     });
@@ -69,12 +69,27 @@ $(document).ready(function () {
     // Metodo più flessibile
 
     cats.forEach((element) => {
+
         let colore = "azzurro";
         if(element.sesso == "M") {
-            $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+            let opacity = "young";
+            if(element.eta < 5) {
+                $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon ${opacity}"></i> </li> `);
+            } else {
+                let opacity = "old";
+                $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon ${opacity}"></i> </li> `);
+            }
+            
         } else {
+            
             let colore = "rosa";
-            $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+            let opacity = "young";
+            if(element.eta < 5) {
+                $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon ${opacity}"></i> </li> `);
+            } else {
+                let opacity = "old";
+                $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon ${opacity}"></i> </li> `);
+            }
         }
        
     });

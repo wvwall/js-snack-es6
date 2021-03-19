@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    //MILESTONE 1
     
 // Definire array oggetti gatti {nome età colore e sesso}
 
@@ -6,7 +8,7 @@ $(document).ready(function () {
 
         {
             nome : "Virgola",
-            eta : 10,
+            eta : 8,
             colore : "Bianco",
             sesso : "F"
         },
@@ -38,8 +40,44 @@ $(document).ready(function () {
     //Ciclo con for each e stampo proprietà nome e colore
 
     cats.forEach((element,i,array) => {
-        console.log(` Il gatto  ${element.nome} è di colore ${element.colore}`);
-        $("#cats").append(`<li> Il gatto  ${element.nome} è di colore ${element.colore} </li>`);
+        //console.log(` Il gatto  ${element.nome} è di colore ${element.colore}`);
+        $("#cats1").append(`<li> Il gatto  ${element.nome} è di colore ${element.colore} </li>`);
     });
+
+
+    //MILESTONE 2
+
+    //Dividere i gatti in due array in base al sesso con filter
+
+    //primo metodo
+
+    /* const catsM = cats.filter((element) => element.sesso == "M" );
+    //console.log(catsM);
+    
+    catsM.forEach((element) => {
+        $("#cats2").append(`<li class = "azzurro"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+    });
+    
+
+    const catsF = cats.filter((element) => element.sesso == "F" );
+    //console.log(catsF);
+
+    catsF.forEach((element) => {
+        $("#cats2").append(`<li class = "rosa"> ${element.nome} è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+    }); */
+
+    // Metodo più flessibile
+
+    cats.forEach((element) => {
+        let colore = "azzurro";
+        if(element.sesso == "M") {
+            $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+        } else {
+            let colore = "rosa";
+            $("#cats2").append(`<li class = "${colore}"> ${element.nome}  è di colore ${element.colore} <i class="fas fa-ribbon"></i> </li> `);
+        }
+       
+    });
+
 
 });
